@@ -9,6 +9,7 @@ import Index from "./pages/index/Index";
 import Signin from "./pages/signin/Signin";
 import User from "./pages/user/User";
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/user" element={<User />} />
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
