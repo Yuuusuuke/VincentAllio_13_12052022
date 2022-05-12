@@ -16,11 +16,13 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Switch>
-          <Route path="/index" element={<Index />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/user" element={<User />} />
-        </Switch>
+        <main>
+          <Switch>
+            <Route path="/index" element={<Index />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/user" element={<User />} />
+          </Switch>
+        </main>
       </Router>
       <Footer />
     </div>
