@@ -18,6 +18,10 @@
     text-decoration: none;
     margin-right: 0.5rem;
   }
+
+  .main-nav-item svg{
+      margin-right: 5px;
+  }
   
   .main-nav-item:hover {
     text-decoration: underline;
