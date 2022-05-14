@@ -4,14 +4,19 @@ import Feature from "../../components/feature/Feature";
 import IconChat from "../../img/icon-chat.png";
 import IconMoney from "../../img/icon-money.png";
 import IconSecurity from "../../img/icon-security.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getAPIData } from "../../redux/api";
 
 export default function Index(){
+    const data = useSelector(state => state.api);
+    const dispatch = useDispatch();
+    console.log(data);
     return(
         <main>
             <div className="hero">
                 <section className="hero-content">
                     <h2 className="sr-only">Promoted Content</h2>
-                    <p className="subtitle">No fees.</p>
+                    <p className="subtitle" onClick={() => dispatch(getAPIData())}>No fees.</p>
                     <p className="subtitle">No minimum deposit.</p>
                     <p className="subtitle">High interest rates.</p>
                     <p className="text">Open saving account with Argent Bank today !</p>
