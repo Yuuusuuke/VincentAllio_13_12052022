@@ -7,7 +7,7 @@ import IconSecurity from "../../img/icon-security.png";
 
 export default function Index(){
     return(
-        <>
+        <main>
             <div className="hero">
                 <section className="hero-content">
                     <h2 className="sr-only">Promoted Content</h2>
@@ -23,6 +23,6 @@ export default function Index(){
                 <Feature icon={IconMoney} alt="Money Icon" title="More savings means higher rates" subtitle="The more you save with us, the higher your interest rate will be!" />
                 <Feature icon={IconSecurity} alt="Security Icon" title="Security you can trust" subtitle="We use top of the line encryption to make sure your data and money is always safe." />
             </section>
-        </>
+        </main>
     );
 }

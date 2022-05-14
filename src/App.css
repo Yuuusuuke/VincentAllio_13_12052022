@@ -18,6 +18,8 @@ body {
 }
 
 .main {
+  display: flex;
+  min-height: 85vh;
   flex: 1;
 }
 
