@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 html {
@@ -10,17 +14,13 @@ html {
   color: #2c3e50;
 }
 
-body {
+body{
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 .main {
-  display: flex;
-  min-height: 85vh;
   flex: 1;
+  display: block;
 }
 
 .bg-dark {
