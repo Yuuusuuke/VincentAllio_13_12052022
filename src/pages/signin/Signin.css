@@ -17,7 +17,6 @@
     margin: 0 auto;
     margin-top: 3rem;
     padding: 2rem;
-    height: 430px;
 }
   
 .sign-in-icon {
@@ -46,4 +45,14 @@
 .input-wrapper input {
     padding: 5px;
     font-size: 1.2rem;
+}
+
+.input-error{
+    border: 1px solid red;
+}
+
+.input-wrapper .error{
+    color: red;
+    margin: 0;
+    font-size: 13px;
 }
