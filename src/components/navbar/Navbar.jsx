@@ -5,7 +5,7 @@ import Logo from "../../img/argentBankLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { disconnectUser } from "../../redux/api";
+import { disconnectUser} from "../../redux/api";
 
 export default function Navbar(){
     const data = useSelector(state => state.api);
@@ -29,7 +29,7 @@ export default function Navbar(){
                 {data.connected ?<>
                     <Link to={"/user"} className="main-nav-item">
                         <FontAwesomeIcon icon={faCircleUser} />
-                        User
+                        {data.value.firstName}
                     </Link>
                     <Link to={"/"} className="main-nav-item" onClick={() => disconnect()}>
                         <FontAwesomeIcon icon={faSignOut} />

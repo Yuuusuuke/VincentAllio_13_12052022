@@ -3,7 +3,7 @@ import "./Signin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { logIN } from "../../redux/api";
+import { logIN, getData } from "../../redux/api";
 import {useNavigate} from "react-router-dom";
 
 export default function Signin(){
@@ -27,14 +27,14 @@ export default function Signin(){
                 setError(true);
                 break;
             case 200:
-                console.log(data);
+                !data.valueFilled && dispatch(getData(data.token));
                 setError(false);
                 navigate("/user");
                 break;
             default:
                 break;
         }
-    }, [data, navigate]);
+    }, [data, navigate, dispatch]);
 
     return(
         <main className="main bg-dark">

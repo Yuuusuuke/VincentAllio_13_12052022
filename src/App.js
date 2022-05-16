@@ -19,6 +19,8 @@ function App() {
           <Switch>
             <Route path="/signin" element={<Signin />} />
             <Route path="/user" element={<User />} />
+            <Route path="/notConnected" element={<Index />} />
+            <Route path="/dataNotFound" element={<Index />} />
             <Route path="/" element={<Index />} />
           </Switch>
       </Router>
