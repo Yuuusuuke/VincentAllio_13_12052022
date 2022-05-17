@@ -31,13 +31,17 @@ export const APISlice = createSlice({
                 state.connected = true;
             }
         });
-        builder.addCase(getData.fulfilled, (state, action) => {
+        builder.addCase(getUserData.fulfilled, (state, action) => {
             state.status = action.payload.status;
             state.message = action.payload.message;
             if(state.status === 200){
                 state.value = action.payload.body;
                 state.valueFilled = true;
             }
+        });
+        builder.addCase(changeName.fulfilled, (state, action) => {
+            state.status = action.payload.status;
+            state.message = action.payload.message;
         });
     }
 })
@@ -59,14 +63,28 @@ export const logIN = createAsyncThunk("api/logIN", async (payload) =>{
     return res;
 })
 
-export const getData = createAsyncThunk("api/getData", async (payload) =>{
+export const getUserData = createAsyncThunk("api/getUserData", async (token) =>{
     const response = await fetch(URL + "/user/profile", {
         method: "POST",
         headers: {
             "Accept": "application/json",
             "Content-type": "application/json",
-            "Authorization": "Bearer " + payload,
+            "Authorization": "Bearer " + token,
         }
+    });
+    const res = await response.json();
+    return res;
+})
+
+export const changeName = createAsyncThunk("api/changeName", async (token, payload) =>{
+    const response = await fetch(URL + "/user/profile", {
+        method: "PUT",
+        headers: {
+            "Accept": "application/json",
+            "Content-type": "application/json",
+            "Authorization": "Bearer " + token,
+        },
+        body: JSON.stringify(payload)
     });
     const res = await response.json();
     return res;

@@ -10,6 +10,7 @@ import Signin from "./pages/signin/Signin";
 import User from "./pages/user/User";
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
+import Error from "./pages/error/Error";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Switch>
             <Route path="/signin" element={<Signin />} />
             <Route path="/user" element={<User />} />
-            <Route path="/notConnected" element={<Index />} />
-            <Route path="/dataNotFound" element={<Index />} />
+            <Route path="/notConnected" element={<Error message="You are not connected yet. Please sign in." />} />
+            <Route path="/dataNotFound" element={<Error message="Server is currently unavailable. Please try later." />} />
+            <Route path="/404" element={<Error message="Error 404" />} />
             <Route path="/" element={<Index />} />
           </Switch>
       </Router>
