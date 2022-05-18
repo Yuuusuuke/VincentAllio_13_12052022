@@ -21,6 +21,7 @@ body{
 .main {
   flex: 1;
   display: block;
+  position: relative;
 }
 
 .bg-dark {

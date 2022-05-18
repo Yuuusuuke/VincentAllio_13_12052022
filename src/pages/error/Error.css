@@ -1,4 +1,7 @@
 .error{
+    position: relative;
+}
+.errorText{
     height: 100%;
     width: 100%;
 

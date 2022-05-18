@@ -42,6 +42,10 @@ export const APISlice = createSlice({
         builder.addCase(changeName.fulfilled, (state, action) => {
             state.status = action.payload.status;
             state.message = action.payload.message;
+            action.payload.status === 200 ? 
+                state.value = action.payload.body 
+                :
+                console.log(`Error ${action.payload.status} : ${action.payload.message}`)
         });
     }
 })
@@ -76,15 +80,15 @@ export const getUserData = createAsyncThunk("api/getUserData", async (token) =>{
     return res;
 })
 
-export const changeName = createAsyncThunk("api/changeName", async (token, payload) =>{
+export const changeName = createAsyncThunk("api/changeName", async (payload) =>{ // Only 1 arg otherwise it cries (payload is a table where 0 is the token and 1 is the body)
     const response = await fetch(URL + "/user/profile", {
         method: "PUT",
         headers: {
             "Accept": "application/json",
             "Content-type": "application/json",
-            "Authorization": "Bearer " + token,
+            "Authorization": "Bearer " + payload[0],
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload[1])
     });
     const res = await response.json();
     return res;
