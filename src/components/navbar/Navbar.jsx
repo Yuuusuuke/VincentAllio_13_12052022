@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../img/argentBankLogo.png";
@@ -10,14 +10,6 @@ import { disconnectUser} from "../../redux/api";
 export default function Navbar(){
     const data = useSelector(state => state.api);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        console.log(data);
-    }, [data])
-
-    const disconnect = () => {
-        dispatch(disconnectUser());
-    }
 
     return(
         <nav className="main-nav">
@@ -31,7 +23,7 @@ export default function Navbar(){
                         <FontAwesomeIcon icon={faCircleUser} />
                         {data.value.firstName}
                     </Link>
-                    <Link to={"/"} className="main-nav-item" onClick={() => disconnect()}>
+                    <Link to={"/"} className="main-nav-item" onClick={() => dispatch(disconnectUser())}>
                         <FontAwesomeIcon icon={faSignOut} />
                         Sign Out
                     </Link>

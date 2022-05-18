@@ -7,19 +7,19 @@ import { logIN, getUserData } from "../../redux/api";
 import {useNavigate} from "react-router-dom";
 
 export default function Signin(){
+    // Local variables
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [error, setError] = useState(false);
 
+    // Navigation Hook
     const navigate = useNavigate();
 
+    // API variable and methodes
     const data = useSelector(state => state.api);
     const dispatch = useDispatch();
 
-    const tryLogIN = () => {
-        dispatch(logIN({"email": username, "password": password}));
-    }
-
+    // Check the status of the request
     useEffect(() => {
         switch(data.status){
             case 400:
@@ -41,7 +41,7 @@ export default function Signin(){
             <section className="sign-in-content">
                 <FontAwesomeIcon icon={faCircleUser} className="sign-in-icon" />
                 <h1>Sign In</h1>
-                <form onSubmit={(e) => {e.preventDefault();tryLogIN();}}>
+                <form onSubmit={(e) => {e.preventDefault();dispatch(logIN({"email": username, "password": password}));}}>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
                         <input className={`input${error && "-error"}`} type="text" id="username" onChange={e => setUsername(e.target.value)} />

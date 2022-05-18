@@ -6,21 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeName } from "../../redux/api";
 
 export default function User(){
+    // Local variables
     const [updateModale, setUpdateModale] = useState(false);
     const [errorFirstname, setErrorFirstname] = useState(false);
     const [errorLastname, setErrorLastname] = useState(false);
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
 
-
+    // Naviagtion Hook
     const navigate = useNavigate();
+
+    // API variable and methodes
     const data = useSelector(state => state.api);
     const dispatch = useDispatch();
 
+    // Redirect if not connected
     useEffect(() => {
         !data.connected && navigate("/notConnected");
     }, [data, navigate])
 
+    // Check if form is correct (at least 3 letters) and start a request to the API if everything is ok
     const checkInput = () => {
         const firstnameOK = (/[a-zA-Z]{3,}/.test(firstname) && firstname !== "");
         const lastnameOK = (/[a-zA-Z]{3,}/.test(lastname) && lastname !== "");

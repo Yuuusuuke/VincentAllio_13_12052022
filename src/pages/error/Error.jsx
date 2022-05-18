@@ -3,6 +3,12 @@ import "./Error.css";
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 
+/**
+ * Error page
+ * 
+ * @date 2022-05-18
+ * @param {string} props.message
+ */
 export default function Error(props){
     return(
         <main className="main bg-dark error">

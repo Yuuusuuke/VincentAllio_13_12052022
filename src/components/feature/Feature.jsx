@@ -2,6 +2,15 @@ import React from "react";
 import "./Feature.css";
 import PropTypes from 'prop-types';
 
+/**
+ * Feature component
+ * 
+ * @date 2022-05-18
+ * @param {string} props.icon
+ * @param {string} props.alt
+ * @param {string} props.title
+ * @param {string} props.subtitle
+ */
 export default function Feature(props){
     return(
         <div className="feature-item">
